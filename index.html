@@ -29,13 +29,17 @@
     <textarea id="code"></textarea>
     <button onclick="executeCode()">実行</button>
     <div id="output"></div>
-
-    <script>
+    <script type="module">
+      'statics';
       import { runFromString } from './dist/coreIndex.js';
+
       function executeCode() {
         const code = document.getElementById('code').value;
-        // ここでオリジナル言語のコードを実行し、console.logの出力を取得する処理を実装する
-        runFromString(code);
+        // オリジナル言語のコードを実行し、console.logの出力を取得する処理
+
+        runFromString(code); // logを代替関数として渡す
+        const output = getConsoleOutput();
+        document.getElementById('output').textContent = output;
       }
     </script>
   </body>
