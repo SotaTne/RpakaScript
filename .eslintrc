@@ -1,0 +1,75 @@
+// Lights up your code like a Christmas tree, but eliminates bikeshedding.
+// Don't forget to use `"strict": true` option in the root tsconfig.json
+// You can also enable the `"pedantic": true` option in asconfig.json
+// Dependencies:
+// "eslint",
+// "eslint-config-airbnb-base",
+// "eslint-config-airbnb-typescript",
+// "eslint-plugin-import",
+// "@typescript-eslint/parser",
+// "@typescript-eslint/eslint-plugin",
+
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  
+  "parserOptions": {
+    "project": "tsconfig.json"
+  },
+  "extends": [
+    "airbnb-base",
+    "airbnb-typescript/base",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "prettier"
+  ],
+  "ignorePatterns": ["**/build/**", "**/dist/**", "**/tests/**", "build.js","coreBuild.js"],
+  "rules": {
+    "no-console": "off",
+    // Too problematic because of AssemblyScript methods like __pin and __unpin.
+    "no-underscore-dangle": ["off"],
+    "no-bitwise":"off"
+  },
+  "overrides": [
+    {
+      "files": ["assembly/**"],
+      "parserOptions": {
+        "project": "assembly/tsconfig.json"
+      },
+      "rules": {
+        
+        "max-classes-per-file": "off",
+
+        "class-methods-use-this":"warn",
+        "@typescript-eslint/consistent-type-assertions": "error",
+        "@typescript-eslint/no-unused-vars": "warn",
+        // Type conversions require an explicit cast in AssemblyScript.
+        "@typescript-eslint/no-unnecessary-type-assertion": "off",
+        "no-plusplus": "off",
+        
+
+        // Different behavior in AssemblyScript.
+        // https://www.assemblyscript.org/basics.html#triple-equals
+        "eqeqeq": "off",
+      }
+    },
+    {
+      "files": ["src/**/*.ts"],
+      "parserOptions": {
+        "project": "src/tsconfig.json"
+      },
+      "rules": {
+        "semi": "warn",
+        "@typescript-eslint/consistent-type-assertions": "error",
+        "@typescript-eslint/no-unused-vars": "warn",
+        "@typescript-eslint/ban-types": "error",
+        "@typescript-eslint/no-explicit-any": "warn",
+        "@typescript-eslint/strict-boolean-expressions": "warn",
+        "no-implicit-coercion": "error",
+        "@typescript-eslint/naming-convention": "off"
+      }
+    }
+  ]
+}

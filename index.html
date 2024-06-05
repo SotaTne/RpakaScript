@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>オリジナル言語実行環境</title>
+    <style>
+      textarea {
+        width: 100%;
+        height: 200px;
+        font-family: monospace;
+        font-size: 14px;
+      }
+      #output {
+        width: 100%;
+        height: 200px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        box-sizing: border-box;
+        font-family: monospace;
+        font-size: 14px;
+        white-space: pre-wrap;
+        overflow-y: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>オリジナル言語実行環境</h1>
+    <textarea id="code"></textarea>
+    <button onclick="executeCode()">実行</button>
+    <div id="output"></div>
+
+    <script>
+      import { runFromString } from './dist/coreIndex.js';
+      function executeCode() {
+        const code = document.getElementById('code').value;
+        // ここでオリジナル言語のコードを実行し、console.logの出力を取得する処理を実装する
+        runFromString(code);
+      }
+    </script>
+  </body>
+</html>
