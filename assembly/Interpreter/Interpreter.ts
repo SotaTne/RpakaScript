@@ -214,11 +214,16 @@ export default class Interpreter
     // この後実装
   }
 
+  // エラーが起こっている
   visitAssignIdentifier(expr: AssignIdentifier): ExprObject {
     if (this.ENVTable.hasIdentifier(expr.nameToken.lexeme)) {
-      return new ExprObject(LiteralType.STRING, expr.nameToken.lexeme);
+      this.ENVTable.defineIdentifier(
+        expr.nameToken.lexeme,
+        this.evaluate(expr.value),
+      );
+      return this.ENVTable.getIdentifier(expr.nameToken);
     }
-    return this.ENVTable.getIdentifier(expr.nameToken);
+    throw new Error('has no Identifier');
   }
 
   visitCallFn(expr: CallFn): ExprObject {
@@ -504,12 +509,14 @@ export default class Interpreter
       {
         this.execute(stmt.defStmt);
         for (;;) {
+          console.log('evalut');
+          console.log(this.evaluate(stmt.boolExpr).value.toString());
           const condition = this.evaluate(stmt.boolExpr);
           const baseBoolExprType = condition.type;
 
           if (
             baseBoolExprType != LiteralType.NIL &&
-            !this.isTruthy(condition)
+            !this.isTruthy(this.evaluate(stmt.boolExpr))
           ) {
             break;
           }
@@ -518,6 +525,7 @@ export default class Interpreter
           if (this.breakStateInfo.hasBreak) {
             break;
           }
+          // console.log(stmt.endPerBlockStmt);
           this.evaluate(stmt.endPerBlockStmt);
         }
       }

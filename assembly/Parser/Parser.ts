@@ -121,6 +121,7 @@ export default class Parser {
   }
 
   private assignIdentifier(nameExpr: VarIdentifier): Expr {
+    console.log('assing');
     const name = nameExpr.nameToken;
     const value = this.expression();
     return new AssignIdentifier(name, value);
