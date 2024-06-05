@@ -12,6 +12,7 @@
     "jsbuild": "node coreBuild.js && node build.js ",
     "build": "npm run asbuild:release && npm run jsbuild",
     "start": "node ./dist/index.js",
+    "start:server": "npx serve .",
     "lint": "eslint ."
   },
   "repository": {

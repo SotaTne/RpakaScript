@@ -23,24 +23,22 @@
         overflow-y: auto;
       }
     </style>
+    <script type="module">
+      'use strict';
+      import { runFromString } from './dist/coreIndex.js';
+
+      function executeCode() {
+        const code = document.getElementById('code').value.toString();
+        runFromString(code); // logを代替関数として渡す
+      }
+
+      // executeCode をグローバルスコープに追加
+      window.executeCode = executeCode;
+    </script>
   </head>
   <body>
     <h1>オリジナル言語実行環境</h1>
     <textarea id="code"></textarea>
     <button onclick="executeCode()">実行</button>
-    <div id="output"></div>
-    <script type="module">
-      'statics';
-      import { runFromString } from './dist/coreIndex.js';
-
-      function executeCode() {
-        const code = document.getElementById('code').value;
-        // オリジナル言語のコードを実行し、console.logの出力を取得する処理
-
-        runFromString(code); // logを代替関数として渡す
-        const output = getConsoleOutput();
-        document.getElementById('output').textContent = output;
-      }
-    </script>
   </body>
 </html>
