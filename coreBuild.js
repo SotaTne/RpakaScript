@@ -9,10 +9,24 @@ await esbuild.build({
   target: 'node20',
   plugins: [
     copy({
-      assets: {
-        from: './build/release.wasm', // コピー元
-        to: '.', // コピー先
-      },
+      assets: [
+        {
+          from: './build/release.wasm', // コピー元
+          to: '.', // コピー先
+        },
+        {
+          from: './build/release.wasm.map', // コピー元
+          to: '.', // コピー先
+        },
+        {
+          from: './build/release.wat', // コピー元
+          to: '.', // コピー先
+        },
+        {
+          from: './build/release.d.ts', // コピー元
+          to: '.', // コピー先
+        },
+      ],
     }),
   ],
 

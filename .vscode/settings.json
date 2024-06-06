@@ -11,5 +11,8 @@
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.linkedEditing": true,
-  "eslint.useESLintClass": true
+  "eslint.useESLintClass": true,
+  "cSpell.words": [
+    "rpaka"
+  ]
 }

@@ -36,8 +36,6 @@ export class FuncObj {
 
   args: Token[];
 
-  // argsTypeList: LiteralType[] = [];
-
   returnType: LiteralType;
 
   tableMap: Map<string, ExprObject> = new Map<string, ExprObject>();

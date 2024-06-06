@@ -24,7 +24,7 @@ import { BreakStateInfo, ReturnStateInfo } from '../ENVTable/ParserENV';
 import ExprObject from '../ExprObject';
 import generateUUID from '../funcs';
 import LiteralType from '../literalType';
-import { FnAsEnv, FuncObj, FuncObjList } from '../rpacaLibs/defASfunction';
+import { FnAsEnv, FuncObj, FuncObjList } from '../rpakaLibs/defASfunction';
 import {
   Block,
   Break,

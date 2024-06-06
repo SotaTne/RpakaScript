@@ -3,8 +3,8 @@ import Parser from './Parser/Parser';
 import { Stmt } from './StmtASTNodes/StmtNode';
 import { Token } from './Token';
 import { getHadError } from './errors';
-import { FuncObj, FuncObjList } from './rpacaLibs/defASfunction';
-import returnPrintObj from './rpacaLibs/print';
+import { FuncObj, FuncObjList } from './rpakaLibs/defASfunction';
+import returnPrintObj from './rpakaLibs/print';
 import Scanner from './scanner';
 
 const funcASObjList: FuncObjList = new FuncObjList();
