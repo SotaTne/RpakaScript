@@ -2,7 +2,7 @@ assembly
 build
 src
 asconfig.json
-rpaka.pegjs
+rpakaScript.peg
 build.js
 .gitignore
 .eslintrc

@@ -1,7 +1,7 @@
 {
-  "name": "rpaka",
+  "name": "rpaka-script",
   "version": "0.0.1",
-  "description": "rpaka language is an AssemblyScript-based language that works both on the web and with Node",
+  "description": "rpaka-script is an AssemblyScript-based language that works both on the web and with Node",
   "main": "./dist/index.js",
   "browser": "./dist/coreIndex.js",
   "scripts": {
