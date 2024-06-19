@@ -9,8 +9,9 @@
     "asbuild:debug": "asc assembly/index.ts --target debug",
     "asbuild:release": "asc assembly/index.ts --target release",
     "asbuild": "npm run asbuild:debug && npm run asbuild:release",
-    "jsbuild": "node coreBuild.js && node build.js ",
-    "build": "npm run asbuild:release && npm run jsbuild",
+    "jsbuild": "node coreBuild.js && node build.js",
+    "build:types": "tsc --project src/tsconfig.json --declaration --emitDeclarationOnly --declarationDir ./dist",
+    "build": "npm run asbuild:release && npm run jsbuild && npm run build:types",
     "start": "node ./dist/index.js",
     "start:server": "npx serve .",
     "lint": "eslint ."

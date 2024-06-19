@@ -29,7 +29,7 @@ export function stringify(object: ExprObject): string {
   return object.value;
 }
 
-function isTruthy(object: ExprObject): boolean {
+export function isTruthy(object: ExprObject): boolean {
   if (object.type == LiteralType.BOOLEAN) {
     if (parseFloat(object.value) == 0) return false;
   }
@@ -53,6 +53,11 @@ export function toNumber(object: ExprObject): f64 {
   );
   return leftValue;
 }
+/*
+export function toList(object: ExprObject): {
+  
+}
+*/
 
 export function fromASTransformer<T>(inputValue: T): ExprObject {
   let value: string = '';
@@ -118,6 +123,55 @@ export function fromRpacaTransformerBoolean(inputValue: ExprObject): boolean {
     return inputValue.value != '0';
   }
   return false;
+}
+export function fromRpacaTransFormerAll<T>(inputValue: ExprObject): T {
+  if (inputValue.type == LiteralType.NUMBER) {
+    return parseFloat(inputValue.value) as T;
+  }
+  if (inputValue.type == LiteralType.BOOLEAN) {
+    if (inputValue.value == '1') {
+      return true as T;
+    }
+    return false as T;
+  }
+  if (inputValue.type == LiteralType.STRING) {
+    return inputValue.value as T;
+  }
+  if (inputValue.type == LiteralType.LIST) {
+    const returnList = [];
+    let returnType: LiteralType;
+    const baseExprList = globalList.ListMap.get(inputValue.value).ListExprs;
+    if (baseExprList.length == 0) {
+      returnType = LiteralType.NIL;
+      returnList.push(null);
+    }
+    returnType = baseExprList[0].type;
+    returnList.push(fromRpacaTransFormerAll(baseExprList[0]));
+    for (let i = 1; i < baseExprList.length; i++) {
+      if (baseExprList[i].type == returnType) {
+        returnList.push(fromRpacaTransFormerAll(baseExprList[i]));
+      } else {
+        let pushValue = null;
+        switch (returnType) {
+          case LiteralType.BOOLEAN:
+            break;
+          case LiteralType.NUMBER:
+            break;
+          case LiteralType.STRING:
+            break;
+          case LiteralType.LIST:
+            break;
+          default:
+            pushValue = null;
+        }
+      }
+    }
+    fromRpacaTransFormerAll(
+      globalList.ListMap.get(inputValue.value).ListExprs[0],
+    );
+    return returnList as T;
+  }
+  return null as T;
 }
 export function fromRpacaTransformerListNum(
   inputValue: ExprObject,

@@ -29,7 +29,6 @@ await esbuild.build({
       ],
     }),
   ],
-
-  keepNames: true,
+  minify: true,
   format: 'esm', // ESMプロジェクトなので、出力フォーマットを'esm'に設定する必要
 });

@@ -1,0 +1,11 @@
+var n = 10;
+for{
+  n = n+1;
+  if(n >20){
+break;
+  }
+}
+
+fn console(){
+  var k = [10,20,30];
+}

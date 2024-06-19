@@ -364,7 +364,7 @@ export default class Scanner {
         if (this.isDigit(char)) {
           this.scanNumber();
         } else if (this.isVarAlphabet(char)) {
-          this.scanIdentifier(); // 後で調節
+          this.scanIdentifier();
         } else {
           error(this.line, 'this charset has no');
         }
