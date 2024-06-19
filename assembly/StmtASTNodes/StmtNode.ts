@@ -129,34 +129,6 @@ export class ForStmt extends Stmt {
   }
 }
 
-/*
-export class DefFn extends Stmt {
-  name: Token;
-
-  fnBlockStmts: Stmt[] = [];
-
-  fnDefExprNames: Token[] = [];
-
-  fnDefaultExprs: Expr[] = [];
-
-  constructor(
-    name: Token,
-    fnDefExprNames: Token[],
-    fnDefaultExprs: Expr[],
-    fnBlockStmts: Stmt[],
-  ) {
-    super();
-    this.name = name;
-    this.fnBlockStmts = fnBlockStmts;
-    this.fnDefaultExprs = fnDefaultExprs;
-    this.fnDefExprNames = fnDefExprNames;
-  }
-
-  accept<T>(visitor: StmtVisitor<T>): T {
-    return visitor.visitDefFn(this);
-  }
-}
-*/
 export class Break extends Stmt {
   accept<T>(visitor: StmtVisitor<T>): T {
     return visitor.visitBreak(this);
