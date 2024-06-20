@@ -5,7 +5,7 @@
 ```RpakaScript
 var n = 23;
 var b = 200 + n;
-var c = "hello"
+var c = "hello";
 ```
 
 変数の定義は`var` `変数名` `=` `式` `;`を用いて行います。
@@ -32,7 +32,7 @@ print(k=100);
 
 ```RpakaScript
 fn printHello(){
-  print("hello")
+  print("hello");
 }
 ```
 
@@ -84,14 +84,14 @@ for(;;){
 
 var z = 10;
 for{
-  z = z*z
+  z = z*z;
   if(z>100000000){
     break;
   }
 }
 
 while{
-  print("while")
+  print("while");
 }
 ```
 
