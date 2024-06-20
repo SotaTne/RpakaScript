@@ -70,13 +70,13 @@ npm run start
 RpakaScriptはJavaScriptから呼び出すことができ、JavaScript環境内でその機能を活用できます。
 
 ```javascript
-const RpakaScript = require('./dist/coreIndex.js');
+import {runFromString} from './dist/coreIndex.js';
 
 const script = `
 print("Hello, RpakaScript!");
 `;
 
-RpakaScript.run(script);
+runFromString(script);
 ```
 
 ## 文法について
