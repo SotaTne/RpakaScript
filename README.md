@@ -83,11 +83,11 @@ RpakaScript.run(script);
 
 ### PEGによる文法の定義
 
-PEGによる文法規則を確認したい場合は、[LANGUAGE_PEG](LANGUAGE_PEG.md)から確認してください
+PEGによる文法規則を確認したい場合は、[LANGUAGE_PEG](docs/LANGUAGE_PEG.md)から確認してください
 
 ### RpakaScriptによる言語の文法の使い方と例について
 
-[LANGUAGE](LANGUAGE.md)から確認してください
+[LANGUAGE](docs/LANGUAGE.md)から確認してください
 
 ## 主な機能
 
