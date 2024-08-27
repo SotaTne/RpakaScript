@@ -3,6 +3,7 @@
 RpakaScriptはAssemblyScriptで作られたスクリプト言語で、JavaScriptから呼び出すことができます。このドキュメントでは、RpakaScriptの概要、インストール方法、使用方法、主な機能、ファイル構成、開発方法、ライセンスについて説明します。
 
 **注意** RpakaScript言語は現在開発中の言語のため処理のログが出力される可能性があり、エラーなどが発生する可能せも高いです。
+**注意** RpakaScriptは、現在javascriptへの依存を減らすため、AssemblyScriptからRustへの開発言語の変更を行なっております。
 
 ## 目次
 
@@ -36,15 +37,6 @@ RpakaScriptはAssemblyScriptで構築されているため、AssemblyScriptが�
 
    - Node.js v12以降で動作確認されています。
    - WebAssemblyモジュールを動かせるNode.jsアプリケーションで使用可能です。
-
-3. **スタンドアロンランタイム**:
-
-   - **Wasmtime**や**Wasmer**などのスタンドアロンランタイムを使用して、WebAssemblyモジュールを用いて実行できます。
-   - これにより、ブラウザ外での実行やサーバーサイドアプリケーションでの使用が可能です。
-
-4. **クラウドおよびコンテナ環境**:
-   - **Docker**: WebAssemblyモジュールを用いて直接コンテナ内で実行するための実験的なサポートがあります。
-   - **Kubernetes**: WebAssemblyモジュールを用いて管理およびスケーリングするために構成できます。
 
 ## 使用方法
 
